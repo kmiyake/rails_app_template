@@ -15,3 +15,5 @@ gem_group :test do
   gem 'factory_girl_rails'
   gem 'spring'
 end
+
+run "bundle exec guard init rspec"
