@@ -17,4 +17,7 @@ gem_group :test do
 end
 
 run "bundle exec rails g rspec:install"
+run "mkdir spec/support"
+run "wget https://raw.github.com/kmiyake/rails_app_template/master/devise.rb -O spec/support/devise.rb"
+run "wget https://raw.github.com/kmiyake/rails_app_template/master/factory_girl.rb -O spec/support/factory_girl.rb"
 run "bundle exec guard init rspec"
