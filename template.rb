@@ -16,4 +16,5 @@ gem_group :test do
   gem 'spring'
 end
 
+run "bundle exec rails g rspec:install"
 run "bundle exec guard init rspec"
