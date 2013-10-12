@@ -23,3 +23,4 @@ run "wget https://raw.github.com/kmiyake/rails_app_template/master/devise.rb -O 
 run "wget https://raw.github.com/kmiyake/rails_app_template/master/factory_girl.rb -O spec/support/factory_girl.rb"
 run "bundle exec guard init rspec"
 run "bundle exec guard init livereload"
+run "git init"
