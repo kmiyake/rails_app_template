@@ -2,6 +2,7 @@ gem 'devise'
 gem 'haml-rails'
 
 gem_group :development do
+  gem 'erb2haml'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-livereload'
