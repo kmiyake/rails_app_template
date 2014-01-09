@@ -1,5 +1,6 @@
 gem 'devise'
 gem 'haml-rails'
+gem 'bootstrap-sass'
 
 gem_group :development do
   gem 'erb2haml'
