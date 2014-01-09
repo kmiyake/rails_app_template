@@ -13,7 +13,6 @@ gem_group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'poltergeist'
-  gem 'spring'
   gem "spring-commands-rspec", require: false
 end
 
