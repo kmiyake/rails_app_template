@@ -1,5 +1,10 @@
 gem 'devise'
 gem 'haml-rails'
+if yes?("Do you need twitter bootstrap?")
+  gem 'therubyracer'
+  gem 'less-rails'
+  gem 'twitter-bootstrap-rails'
+end
 
 gem_group :development do
   gem 'erb2haml'
