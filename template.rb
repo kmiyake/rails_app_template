@@ -1,5 +1,5 @@
-if yes?("Do you need to use devise?")
-  gem 'devise' if yes?("Do you need devise?")
+if yes?("Do you need devise?")
+  gem 'devise'
   has_devise = true
 end
 gem 'haml-rails'
