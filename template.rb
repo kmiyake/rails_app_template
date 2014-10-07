@@ -11,7 +11,7 @@ gem 'omniauth-twitter' if yes?("Do you need twitter oauth?")
 
 # Views
 gem 'haml-rails'
-gem 'simple_form'
+gem 'simple_form', '3.1.0.rc2'
 
 # Assets
 if yes?("Do you need backbone?")
@@ -20,11 +20,15 @@ if yes?("Do you need backbone?")
 end
 if yes?("Do you need bootstrap?")
   gem 'rails-assets-bootstrap', '3.1.1'
+  has_bootstrap = true
 end
 gem 'rails-assets-fontawesome' if yes?("Do you need fontawesome?")
 
 # Configuration
-gem 'rails_config'
+if yes?("Do you need rails_config?")
+  gem 'rails_config'
+  has_rails_config = true
+end
 
 gem_group :development do
   gem 'erb2haml'
@@ -55,6 +59,12 @@ end
 run "bundle install"
 run "bundle exec rake haml:replace_erbs"
 run "bundle exec rails g rspec:install"
+if has_bootstrap
+  run "bundle exec rails g simple_form:install --bootstrap"
+else
+  run "bundle exec rails g simple_form:install"
+end
+run "bundle exec rails g rails_config:install" if has_rails_config
 
 run "mkdir spec/support"
 if has_devise
@@ -63,7 +73,6 @@ if has_devise
 end
 run "bundle exec guard init rspec"
 run "bundle exec guard init livereload"
-run "bundle exec spring binstub --all"
 run "wget https://raw.github.com/kmiyake/rails_app_template/master/factory_girl.rb -O spec/support/factory_girl.rb"
 git :init
 run "cp config/database.yml config/database.yml.example"
